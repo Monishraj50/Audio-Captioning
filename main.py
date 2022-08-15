@@ -35,6 +35,10 @@ from keras.preprocessing.text import Tokenizer
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 
+from utils.transformer_utils import create_masks_decoder
+from transformers.transformer import Transformer
+
+
 X_load = np.load("./audiocaps_spec.npz",allow_pickle=True)
 X = X_load['features']
 y = X_load['labels']
