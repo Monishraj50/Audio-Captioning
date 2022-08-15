@@ -35,6 +35,7 @@ from keras.preprocessing.text import Tokenizer
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 
+from utils.text_utils import text_clean
 from utils.transformer_utils import create_masks_decoder
 from transformers.transformer import Transformer
 
@@ -54,31 +55,6 @@ for txt in y:
     vocabulary.extend(txt.split())
 print('Vocabulary Size: %d' % len(set(vocabulary)))
 y_clean=[]
-
-def remove_punctuation(text_original):
-    text_no_punctuation = text_original.translate(string.punctuation)
-    return(text_no_punctuation)
-
-def remove_single_character(text):
-    text_len_more_than1 = ""
-    for word in text.split():
-        if len(word) > 1:
-            text_len_more_than1 += " " + word
-    return(text_len_more_than1)
-
-def remove_numeric(text):
-    text_no_numeric = ""
-    for word in text.split():
-        isalpha = word.isalpha()
-        if isalpha:
-            text_no_numeric += " " + word
-    return(text_no_numeric)
-
-def text_clean(text_original):
-    text = remove_punctuation(text_original)
-    text = remove_single_character(text)
-    text = remove_numeric(text)
-    return(text)
 
 for i, caption in enumerate(y):
     newcaption = text_clean(caption)
