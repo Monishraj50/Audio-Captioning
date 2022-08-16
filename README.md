@@ -16,7 +16,7 @@ extract audio functionality from the log mel spectrogram of the automatic audio 
 task.
 
 
-# Introduction
+## Introduction
 Automated Audio Captioning (AAC) is a new and challenging task that includes a
 variety of modalities. This can be described as generating a textual description(i.e
 caption) when given an audio signal. The textual description obtained should be as close
